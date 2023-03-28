@@ -16,11 +16,11 @@ yargs.command({
             type: "string"
         }
     },
-    handler: function (argv) {
-        console.log("Adding a new note!");
-        notes.addNote(argv.title, argv.body);
+    handler(argv) {
+        console.log("Adding a new note!")
+        notes.addNote(argv.title, argv.body)
     }
-});
+})
 
 yargs.command({
     command: "remove",
@@ -32,26 +32,26 @@ yargs.command({
             type: "string"
         }
     },
-    handler: function (argv) {
+    handler(argv) {
         console.log("Removing a note!")
-        notes.removeNote(argv.title);
+        notes.removeNote(argv.title)
     }
-});
+})
 
 yargs.command({
     command: "read",
     describe: "Read a note",
-    handler: function () {
+    handler() {
         console.log("Reading a note!")
     }
-});
+})
 
 yargs.command({
     command: "list",
     describe: "List all notes",
-    handler: function () {
+    handler() {
         console.log("Listing notes!")
     }
-});
+})
 
-yargs.demandCommand().parse();
+yargs.demandCommand().parse()
