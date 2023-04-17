@@ -1,9 +1,7 @@
-const fs = require('fs')
-const chalk = require('chalk')
+const fs = require("fs")
+const chalk = require("chalk")
 
-const getNotes = () => {
-    return 'Your notes...'
-}
+const getNotes = () => loadNotes()
 
 const addNote = (title, body) => {
     const notes = loadNotes()
@@ -37,7 +35,7 @@ const listNotes = () => {
     const notes = loadNotes()
     console.log(chalk.inverse("Your Notes..."))
     notes.forEach((note) => {
-        console.log(note.title);
+        console.log(note.title)
     })
 }
 
@@ -47,7 +45,6 @@ const readNote = (title) => {
     if (note) {
         console.log(chalk.inverse(note.title))
         console.log(note.body)
-
     } else {
         console.log(chalk.red.inverse("No note found!"))
     }
@@ -59,7 +56,7 @@ const saveNotes = (notes) => {
 
 const loadNotes = () => {
     try {
-        const dataBuffer = fs.readFileSync('notes.json')
+        const dataBuffer = fs.readFileSync("notes.json")
         return JSON.parse(dataBuffer.toString())
     } catch (e) {
         return []
